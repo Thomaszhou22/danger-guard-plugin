@@ -1,6 +1,6 @@
 {
   "name": "danger-guard-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Deterministic pre-exec interception of destructive shell commands for OpenClaw agents: pattern matching, approval gates, and Feishu alerts.",
   "type": "module",
   "main": "./dist/index.js",
@@ -37,6 +37,10 @@
     "compat": {
       "pluginApi": ">=2026.9.2",
       "minGatewayVersion": "2026.9.2"
+    },
+    "build": {
+      "openclawVersion": "2026.9.2",
+      "pluginSdkVersion": "2026.9.2"
     }
   }
 }
