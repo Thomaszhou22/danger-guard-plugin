@@ -1,0 +1,37 @@
+{
+  "id": "danger-guard",
+  "name": "Danger Guard",
+  "description": "Deterministic pre-exec interception of destructive shell commands. Pattern matching outside the model, approval gates, and Feishu alerts.",
+  "contracts": {
+    "hooks": ["before_tool_call"]
+  },
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "level1Patterns": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Extra regex patterns (case-insensitive) treated as critical: blocked pending owner approval"
+      },
+      "level2Patterns": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Extra regex patterns treated as risky: approval required with warning severity"
+      },
+      "whitelistPatterns": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Regex patterns that skip interception entirely (e.g. temp dirs)"
+      },
+      "severityLevel2": {
+        "type": "string",
+        "enum": ["info", "warning", "critical"],
+        "default": "warning"
+      }
+    }
+  }
+}
